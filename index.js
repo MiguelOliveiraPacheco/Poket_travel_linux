@@ -7,11 +7,18 @@ const port = 3000
 require('dotenv').config({ path: './public/private/.env' })
 
 app.get('/',(req,res)=>{
-    res.sendFile(__dirname+'/public/view/index.html')
+    res.sendFile(__dirname+'/public/view/home.html')
 })
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json({ extended: false }))
+
+app.use(express.static('./public'))
+
+//rota para teste do QR
+app.post('/teste', (req, res) => {
+/* https://www.tabnine.com/code/javascript/modules/qrcode */
+})
 
 
 app.use('/create_utente', require('./routes/createUtente'))
