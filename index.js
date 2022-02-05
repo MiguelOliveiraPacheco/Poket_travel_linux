@@ -30,5 +30,5 @@ mongoose.connect(process.env.MONGOURI,
 
 app.listen(3000,(error)=>{
     if(error) throw error
-    console.log('Api listening on port 3000000000')
+    console.log('Api listening on port 3000')
 })
