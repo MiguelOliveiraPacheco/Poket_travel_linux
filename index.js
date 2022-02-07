@@ -20,7 +20,6 @@ app.post('/teste', (req, res) => {
 /* https://www.tabnine.com/code/javascript/modules/qrcode */
 })
 
-
 app.use('/create_utente', require('./routes/createUtente'))
 
 mongoose.connect(process.env.MONGOURI, 

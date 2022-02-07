@@ -1,33 +1,48 @@
 <!DOCTYPE html>
 <html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../css/style.css" rel="stylesheet">
-    <title>Pocket Travel</title>
-</head>
-<body>
-  
-    <header>
-        <nav class="menu">
-            <div class="container">
-                <img href="#" src="../images/logo.png">
-            </div> 
-                <ul>
-                    <li><a href="" class="ativo">Inserir Uentes</a></li>
-                    <li><a href="">Editar Utentes</a></li>
-                    <li><a href="">Ver Utentes</a></li>
-                </ul>
-        </nav>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../css/style.css" rel="stylesheet">
+        <title>Pocket Travel</title>
+    </head>
+        <body>
+            <!-- https://www.youtube.com/watch?v=SZB6gMaaV84 -->
 
-            <section class="principal">
-                <h2>Com o Pocket Travel é fácil viajar</h2>
-                <div class ="links">
-                    <a href ="">Se inscreva!</a>
+            <input type="checkbox" id="check">
+
+                <!-- COMEÇO DO SIDEBAR -->
+                <div class="sidebar">
+                    <label for="check">
+                        <ion-icon name="menu-outline" id="sidebar_btn"></ion-icon>
+                    </label>
+                    <center>
+                        <img src="../images/user.png" class="image" alt="">
+                        <h2>Admin</h2>
+                    </center>
+                    <a href="#"><ion-icon name="add-circle-outline"></ion-icon><span>Criar Utilizador</span></a>
+                    <a href="#"><ion-icon name="eye-outline"></ion-icon><span>Ver Utilizadores</span></a>
+                    <a href="#"><ion-icon name="create-outline"></ion-icon><span>Editar Utilizadores</span></a>
+                    <a href="#"><ion-icon name="trash-outline"></ion-icon><span>Eliminar Utilizadores</span></a>
+                    <a href="#"><ion-icon name="log-out-outline"></ion-icon><span>Logout</span></a>
                 </div>
-            </section>
-
-    </header>
-</body>
+                <!-- FINAL DO SIDEBAR -->
+                
+                        
+               
+                <div class="content">
+                    <section class="principal">
+                            <h2>Com o Pocket Travel é fácil viajar</h2>
+                            <div class ="links">
+                                <a href ="">Se inscreva!</a>
+                            </div>
+                        </section>
+                </div>
+            
+                
+                <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+                <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+                    
+        </body>
 </html>
