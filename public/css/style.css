@@ -6,21 +6,33 @@
     font-family: Arial, Helvetica, sans-serif;
   }
 
-  .container img{
-      max-width: 130px;
-      max-height: 130px;
-      width: auto;
-      height: auto;
-  }
+  
 
-  header {
-    width: 100%;
+  body {
+    margin: 0;
+}
+        
+#container-imagem {
+    position: relative;
     height: 100vh;
-    background-image: /*linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),*/ url('../images/bus.jpg');
+    width: 100%;
+    background: url('../images/bus.jpg');
     background-position: center;
     background-size: cover;
-  }
- 
+}
+
+.logoMarcaLogin{
+  position:absolute;
+  top: 30px;
+  left: 60px;
+}
+
+.logoMarca{
+  position:absolute;
+  top: 30px;
+  right: 60px;
+}
+
   a{
     text-decoration: none;
   }
@@ -235,13 +247,14 @@
   label #sidebar_btn{
       z-index: 1;
       position: fixed;
-      left: 300px;
+      left: 15px;
       color: #fff;
       font-size: 30px;
       margin: 5px 0;
       cursor: pointer;
       transition: 0.5s;
-      transition-property:color ;
+      transition-property:color;
+      top: 30px;
   }
 
   label #sidebar_btn:hover{
@@ -276,4 +289,31 @@
 
   #check{
       display: none;
+  }
+
+  /*   */
+
+  .content{
+    /* */
+  }
+
+  .letras{
+    color: #fff;
+  }
+
+  .btn{
+    margin-top: 2.2rem;
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #9f9f9f;
+    color:#fff;
+    font-size: 18px;
+    border-radius: 20px;
+  }
+
+  .btn :hover{
+    cursor: pointer;
+    background: #ffc107;
+    color: #000;
   }

@@ -6,7 +6,7 @@ const port = 3000
 
 require('dotenv').config({ path: './public/private/.env' })
 
-app.get('/',(req,res)=>{
+app.get('/home',(req,res)=>{
     res.sendFile(__dirname+'/public/view/home.html')
 })
 
