@@ -11,9 +11,7 @@
         <body>
             <!-- https://www.youtube.com/watch?v=SZB6gMaaV84 -->
             <div class="logoMarca">
-                <img href="#" src="../images/logo.png" width="150" height="150" 
-               
-              >
+                <img href="#" src="../images/logo.png" width="150" height="150">
             </div>
             <input type="checkbox" id="check">
 
@@ -35,118 +33,83 @@
                 <!-- FINAL DO SIDEBAR -->
                 
                 <!-- FORM -->
+
+
                 <div class="content">
-                    <div class="container-fluid p-4 text-center letras"><h1>Dados do utilizador</h1>
+                  <br><br><br><br><br>
+                  <div class="fundo">
+                  <br>
+                    <div class="container-fluid p-7 text-center letras"><h1>Criar utilizador</h1>
                     </div>
+                    <br>
+                    
                     <div class="container">
                       <div class="row">
-                        <div class="col-sm-6">
-                      <label 
-                      for="nome" 
-                      class="col-sm-12 col-form-label letras">Nome completo:
-                      </label>
-                      <input 
-                        class="form-control" 
-                        type="text" 
-                        id="nome"
-                        placeholder="Nome completo...">
-                        
-                      </div>
-                      <div class="col-sm-6">
-                        <label 
-                        for="morada_rua" 
-                        class="col-sm-2 col-form-label letras">Morada:</label>
-                        <input 
-                          class="form-control" 
-                          type="text" 
-                          id="morada_rua"
-                          placeholder="Rua...">   
-                          
-                      </div>
-                    </div>
-          
-          
-          
-                      <div class="row">
-                          <div class="col-sm-2">
-                            <label 
-                            for="morada_num" 
-                            class="col-sm-12 col-form-label letras" >Nº:</label>
+                        <div class="col-m-5">
+                          <label 
+                          for="nome" 
+                          class="col-sm-12 col-form-label letras">Nome do Utilizador:
+                          </label>
                             <input 
                               class="form-control" 
                               type="text" 
-                              id="morada_num"
-                              placeholder="Nº...">
-                             
-                          </div>
-                            <div class="col-sm-4">
-                              <label 
-                              for="dnasc" 
-                              class="col-sm-12 col-form-label letras">Data nascimento:</label>
-                              <input 
-                                class="form-control" 
-                                type="date" 
-                                id="dnasc"
-                                placeholder="Data de nascimento...">
-                               
-                            </div>
-                            <div class="col-sm-6">
-                              <label 
-                              for="email" 
-                               class="col-sm-2 col-form-label letras">Email:</label>
-                              <input 
-                                class="form-control" 
-                                type="email" 
-                                id="email"
-                                 placeholder="email...">
-                               
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="col-sm-3">
-                              <label 
-                              for="telem" 
-                              class="col-sm-2 col-form-label letras">Telemóvel:</label>
+                              id="nome"
+                              placeholder="Inserir nome completo">
+                        </div>
+
+                        <div class="col-m-5">
+                            <label 
+                              for="nome" 
+                              class="col-sm-12 col-form-label letras">Número de Indentificação Fiscal:
+                            </label>
                               <input 
                                 class="form-control" 
                                 type="text" 
-                                id="telem"
-                                placeholder="nº telemóvel...">
-                              
-                            </div>
-                            
-                            
-                            <div class="col-sm-3">
-                              <label 
+                                id="nif"
+                                placeholder="Inserir o NIF">
+                          </div>
+
+                        <div class="col-m-3">
+                            <label 
+                              for="nome" 
+                              class="col-sm-12 col-form-label letras">Número de Telemóvel:
+                        </label>
+                            <input 
+                            class="form-control" 
+                            type="text" 
+                            id="nome"
+                            placeholder="Insira o número de telemóvel">
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label 
                               for="tipo" 
-                              class="col-sm-2 col-form-label letras">Tipo:</label>
+                              class="col-sm-12 col-form-label letras">Origem:</label>
                                 <select 
                                   class="form-select" id="tipo">
                                 </select>
-                         
-                            </div>
+                        </div>
+                        
+                        <div class="col-sm-6">
+                            <label 
+                              for="tipo" 
+                              class="col-sm-2 col-form-label letras">Destino:</label>
+                                <select 
+                                  class="form-select" id="tipo">
+                                </select>
+                        </div>
+                            
+                        
+                                
+                        <div class="col-sm-3 btnTeste">
+                            <button  type="button" class="btn">Criar Utilizador</button>
+                        </div>
           
-                            <div class="col-sm-3">
-                              <label 
-                              for="tag" 
-                              class="col-sm-12 col-form-label letras">card tag:</label>
-                              <input 
-                                class="form-control" 
-                                type="text" 
-                                id="tag"
-                                placeholder="tag...">
-                             
-                            </div>
-                         
-                            <div class="col-sm-3">
-                              <button  type="button" class="btn" >inserir </button>
-                            </div>
-          
-                          </div>                 
-                         
-                      </div>
-
-
+                      </div> 
+                      <br>                  
+                    </div>
+                  </div>
+                </div>
                 
                <!--
                 <div class="content">
@@ -157,11 +120,10 @@
                             </div>
                         </section>
                 </div>
-            -->
+              -->
                 
-                <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-                <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-                    
+              <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+              <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>      
         </body>
         <script type="text/javascript" src="../js/formCriar.js"></script>
 </html>
