@@ -88,6 +88,22 @@ body{
     background-color: white;
   }
 
+/*  FOOTER  */ 
+  footer{
+    position: absolute;
+    background-color:#264253;
+    color: white;
+    width: 100%;
+    height: 4vh;
+    bottom:0;
+  }
+
+  footer p{
+    position: absolute;
+    left: 43.5%;
+    bottom: 9px;
+  }
+
 /* FORM LOGIN */
 
   .loginbox{
