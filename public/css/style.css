@@ -104,6 +104,12 @@ body{
     bottom: 9px;
   }
 
+  footer p2{
+    position: absolute;
+    left: 45.5%;
+    bottom: 9px;
+  }
+
 /* FORM LOGIN */
   .loginbox{
       width: 330px;
