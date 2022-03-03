@@ -1,10 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-  }
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
 
 body{
     margin: 0;
@@ -61,16 +60,25 @@ body{
   }
   
   .principal{
-    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6));
+    width: 1100px;
+    height: 90px;
+    border-radius: 35px;
+    top: 50%;
+    left: 58%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+    border-radius: 20px;
   }
   
   .principal h2{
     color: white;
-    font-size: 45px;
+    font-size: 40px;
   }
   
   .principal .links a{
@@ -100,14 +108,14 @@ body{
 
   footer p{
     position: absolute;
-    left: 43.5%;
-    bottom: 9px;
+    left: 42%;
+    bottom: 5px;
   }
 
   footer p2{
     position: absolute;
-    left: 45.5%;
-    bottom: 9px;
+    left: 42%;
+    bottom: 5px;
   }
 
 /* FORM LOGIN */
@@ -194,12 +202,6 @@ body{
   }
 
 /* MENU PRINCIPAL */
-  *{
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-  }
-  
   header{
       position: fixed;
       background: #264253;
@@ -336,7 +338,8 @@ body{
   .fundo{
     background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6));
     width: 1000px;
-    margin-left: 350px;
-    margin-top: 150px;
+    margin-left: 300px;
+    margin-top: 30px;
     border-radius: 25px;
   }
+

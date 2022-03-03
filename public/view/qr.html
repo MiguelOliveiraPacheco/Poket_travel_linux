@@ -6,7 +6,7 @@
             function geraQr() 
             {
                 var text_qr = document.getElementById("qrdata");
-                var text_qr = document.getElementById("qrdata");
+                
                 var qr_code = new QRCode(document.getElementById('qrcode'));
                 qr_code.makeCode(text_qr.value);
             }
@@ -63,6 +63,16 @@
                         type="text" 
                         id="qrdata"
                         placeholder="Inserir nome completo">
+
+                        <label 
+                        for="nome" 
+                        class="col-sm-12 col-form-label letras">Número de Indentificação Fiscal:
+                      </label>
+                        <input 
+                          class="form-control" 
+                          type="text" 
+                          id="qrdata"
+                          placeholder="Inserir o NIF">
                   </div>
     
                   <div class="col-m-5">

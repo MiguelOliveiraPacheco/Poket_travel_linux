@@ -20,7 +20,15 @@ app.post('/teste', (req, res) => {
 /* https://www.tabnine.com/code/javascript/modules/qrcode */
 })
 
-app.use('/create_utente', require('./routes/createUtente'))
+
+//rotas
+
+app.use('/origem',require('./routes/createOrigem'))
+app.use('/formdataorigens',require('./routes/formDataOrigens'))
+app.use('/destino',require('./routes/createDestino'))
+app.use('/formdatadestinos',require('./routes/formDataDestinos'))
+app.use('/createutilizador', require('./routes/createUtilizador'))
+
 
 mongoose.connect(process.env.MONGOURI, 
     {useNewUrlParser: true, useUnifiedTopology: true},
