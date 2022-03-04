@@ -40,61 +40,49 @@ router.post('/', (req, res) => {
     upload(req, res, (err) => {
         console.log(req.body)
         console.log(req.file)
-        res.json({
-            type:'success',
-            msg: 'Utilizador inserido com sucesso'
-        })
-        /*inserir na base de dados*/
-        /*if(err){
-            res.json({res: err})
-        } else {
-            if(req.file == undefined){
-              res.json({res:'No file selected'})
-            }
-            else{
-                console.log(req.file)
-                res.json({res:'Success!'})
-            }           
-        }*/
+        utilizadorModel.find({ 'nif': { $eq: req.body.nif } })
+            .exec()
+            .then((utilizador, error) => {
+                if (error) throw error
+                if (utilizador == 0) {
+                    newUtilizador = new utilizadorModel({
+                        nome: req.body.nome,
+                        nif: req.body.nif,
+                        numeroT: req.body.numeroT,
+                        origem: req.body.origem,
+                        destino: req.body.destino,
+                        foto: filename
+                    })
+                    newUtilizador.save()
+                        .then((result,error) => {
+                            if (error) throw error
+                            console.log(result)
+                            res.json({
+                                type: 'success',
+                                msg: 'Utilizador criado com sucesso!'
+                            })
+                        })
+                        .catch(error => {
+                            console.log(error)
+                            res.json({
+                                type: 'error',
+                                msg: '1-Não foi possível satizfazer o seu pedido. Tente mais tarde'
+                            })
+                        })
+                }
+                else {
+                    res.json({ msg: 'Utilizador já existente' })
+                    console.log(result)
+                }
+            })
+            .catch(error => {
+                console.log(error)
+                res.json({
+                    type: 'error',
+                    msg: '2-Não foi possível satizfazer o seu pedido. Tente mais tarde'
+                })
+            })
     })
 })
 
 module.exports = router
-
-
-
-/**
- * 
- * console.log(req.body)
-    utilizadorModel.find({'nif':{$eq: req.body.nif}})
-    .exec()
-    .then((result)=>{
-        if(result == 0){
-            newUtilizador = new utilizadorModel({
-               nome: req.body.nome,
-               nif: req.body.nif,
-               numeroT: req.body.numeroT,
-               origem: req.body.origem,
-               destino: req.body.destino,
-               //foto: filename
-            })
-            
-            newUtilizador.save()
-            .then(result => {
-                console.log('Utilizador criado')
-                res.json({msg: 'Utilizador criado'})
-            })
-            .catch(error => {
-                console.log(error)
-                res.json({msg: 'Infelizmente ocorreu um erro'})
-            })
-        }
-        else {
-            res.json({msg:'Utilizador já existente'})
-            console.log(result)
-        }
-    })
-    .catch(error =>{
-        console.log(error)
-    })
- */
