@@ -21,8 +21,7 @@ app.post('/teste', (req, res) => {
 })
 
 
-//rotas
-
+//ROTAS
 app.use('/origem',require('./routes/createOrigem'))
 app.use('/formdataorigens',require('./routes/formDataOrigens'))
 app.use('/destino',require('./routes/createDestino'))
@@ -30,6 +29,7 @@ app.use('/formdatadestinos',require('./routes/formDataDestinos'))
 app.use('/createutilizador', require('./routes/createUtilizador'))
 app.use('/utilizadores', require('./routes/obterUtilizador'))
 app.use('/delete', require('./routes/eliminarUtilizador'))
+app.use('/editar', require('./routes/editarUtilizador'))
 
 
 mongoose.connect(process.env.MONGOURI, 

@@ -1,8 +1,39 @@
 const express = require('express')
 const router = express.Router()
 const path = require('path')
-const multer = require('multer')
 const utilizadorModel = require('../models/utilizadorModel')
+const multer = require('multer')
+
+router.get('/:_id', (req,res)=>{
+    utilizadorModel.findOne({'_id': {$eq: req.params._id}})
+    .exec()
+    .then((utilizador,error) =>{
+        if (error) throw error
+        console.log(utilizador)
+        if(utilizador!=0) {
+            res.json({
+                type: 'success',
+                msg: 'Utilizador encontrado',
+                utilizador: utilizador
+            })
+        }
+        else {
+            res.json({
+                type: 'error',
+                msg: 'Utilizador não encontrado'
+            })
+        }
+
+    })
+    .catch(error => {
+        console.log(error)
+        res.json({
+            type: 'error',
+            msg: 'Utilizador não encontrado'
+        })
+    })
+
+})
 
 let filename, text
 
@@ -36,11 +67,11 @@ function checkFileType(file, callback) {
     }
 }
 
-router.post('/', (req, res) => {
+router.put('/', (req, res) => {
     upload(req, res, (err) => {
         console.log(req.body)
         console.log(req.file)
-        utilizadorModel.find({ 'nif': { $eq: req.body.nif } })
+        utilizadorModel.findOneAndUpdate({ 'nif': { $eq: req.body.nif } })
             .exec()
             .then((utilizador, error) => {
                 if (error) throw error
@@ -72,6 +103,7 @@ router.post('/', (req, res) => {
                 }
                 else {
                     res.json({ msg: 'Utilizador já existente' })
+                    console.log(result)
                 }
             })
             .catch(error => {

@@ -69,7 +69,7 @@ function insertUtilizador() {
             .then(data => {
                 if(data.type=='success')
                     alert(data.msg)
-                else alert('Ocorreu um erro...')
+                else alert(data.msg)
             })
             .catch((err) => {
                 console.log('Request failed', err.message)
@@ -113,7 +113,7 @@ function validaFormData(someExpressFiles,nome,nif,numeroT,origem,destino){
     if (destino == '')
         return alert('Escolher o Destino')
     if(origem==destino)
-        return alert('Origem e destino devem seer diferentes')
+        return alert('Origem e destino devem ser diferentes')
     if(someExpressFiles==undefined)
         return alert('Deve escolher uma fotografia')
     
@@ -135,7 +135,7 @@ function linhasTabela(){
                     <td class="text-center">${json.msg[i].nif}</td>
                     <td class="text-center">
                     <button type="button" class="btn btn-secondary me-1">Ver Detalhes</button>
-                    <button type="button" class="btn btn-light me-1">Editar</button>
+                    <button type="button" class="btn btn-light me-1" onclick="editar('${json.msg[i]._id}')>Editar</button>
                     <button type="button" class="btn btn-danger" onclick="eliminar('${json.msg[i]._id}')">Eliminar</button>
                     </td>
                 </tr>`
@@ -164,6 +164,21 @@ function eliminar(_id) {
     })
 }
 
+
+function editar(_id) {
+    var options = {
+        method: 'GET',
+        headers: {
+            'Content-type': 'application/json'
+        }
+    }
+    fetch('http://localhost:3000/editar/' + _id, options)
+    .then(res=>res.json())
+    .then(json=>{
+        alert(json.msg)
+        linhasTabela()
+    })
+}
 
 
 //--------------------------------------------
