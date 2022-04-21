@@ -134,8 +134,7 @@ function linhasTabela(){
                     <td class="text-center">${json.msg[i].nome}</td>
                     <td class="text-center">${json.msg[i].nif}</td>
                     <td class="text-center">
-                    <button type="button" class="btn btn-secondary me-1">Ver Detalhes</button>
-                    <button type="button" class="btn btn-light me-1" onclick="editar('${json.msg[i]._id}')>Editar</button>
+                    <button type="button" class="btn btn-secondary me-1" onclick="editar('${json.msg[i]._id}')">Editar</button>
                     <button type="button" class="btn btn-danger" onclick="eliminar('${json.msg[i]._id}')">Eliminar</button>
                     </td>
                 </tr>`
@@ -150,6 +149,7 @@ function linhasTabela(){
 }
 
 function eliminar(_id) {
+    console.log(_id)
     var options = {
         method: 'DELETE',
         headers: {
@@ -172,49 +172,107 @@ function editar(_id) {
             'Content-type': 'application/json'
         }
     }
-    fetch('http://localhost:3000/editar/' + _id, options)
-    .then(res=>res.json())
-    .then(json=>{
-        alert(json.msg)
-        linhasTabela()
+
+    const origem = document.getElementById('origem')
+    const destino = document.getElementById('destino')
+    fetch('http://localhost:3000/formdataorigens')
+        .then(res => res.json())
+        .then(data => {
+            for (let i = 0; i < data[0].origem.length; i++) {
+                const op =
+                    `<option>${data[0].origem[i]}</option>`
+                origem.innerHTML += op
+                destino.innerHTML += op
+            }
+            fetch('http://localhost:3000/editar/' + _id, options)
+            .then(res=>res.json())
+            .then(json=>{
+                alert(json.msg)
+                document.getElementById('nome').value= json.utilizador.nome
+                document.getElementById('nif').disabled=true
+                document.getElementById('nif').value= json.utilizador.nif
+                document.getElementById('numeroT').value= json.utilizador.numeroT
+                document.getElementById('origem').value= json.utilizador.origem
+                document.getElementById('destino').value= json.utilizador.destino
     })
+        })
+        .catch(error => {
+            console.log(error)
+        })
+ 
 }
 
+function atualizarUtilizador() {
+    const nome = document.getElementById('nome').value
+    const nif = document.getElementById('nif').value
+    const numeroT = document.getElementById('numeroT').value
+    const origem = document.getElementById('origem').value
+    const destino = document.getElementById('destino').value
 
-//--------------------------------------------
-
-
-/*
-function sendFile(){
-    const someExpressFiles = document.getElementById('someExpressFiles').files[0]
-    let title= document.getElementById('title').value
-    console.log(someExpressFiles)
-    console.log(title)
-    let fd = new FormData()
-    fd.append('image',someExpressFiles)
-    fd.append('text', title )
-    if(someExpressFiles == undefined)
-        alert('Não há imagem selecionada!')
-    else{
-        var options1 = {
-            method:'POST',
+    if(validaEditFormData(nome,nif,numeroT,origem,destino)==true){
+        const data={'nome':nome, 'nif':nif, 'numeroT':numeroT, 'origem':origem, 'destino':destino}
+        /*let fd = new FormData()
+        fd.append('nome', nome )
+        fd.append('nif', nif )
+        fd.append('numeroT', numeroT )
+        fd.append('origem', origem )
+        fd.append('destino', destino )*/
+        var options = {
+            method: 'PUT',
             headers: {
-                'Accept':'application/json',
-                'myheader' : title
+                'Accept': 'application/json',
+                'myheader': nif
             },
-            body: fd
+            body: JSON.stringify(data),
         }
-        console.log(someExpressFiles)
-        fetch('http://localhost:3000/foto',options1)
-        .then(res => res.json())
-        .then(data => alert(data.res))
-        .catch((err) => {
-            console.log('Request failed', err.message)
-        });
-
-    
+        fetch('http://localhost:3000/editar/atualizar', options)
+            .then(res => res.json())
+            .then(data => {
+                alert(data.msg)
+            })
+            .catch((err) => {
+                console.log('Request failed', err.message)
+            });
     }
 }
 
-
-*/
+function validaEditFormData(nome,nif,numeroT,origem,destino){
+    if (nome == '')
+        return alert('Tem de preencher o nome.')
+    if (nif == '')
+        return alert('Tem de indicar o NIF.')
+    else {
+        let i = 0
+        for (i; i < nif.length; i++) {
+            let c = nif.charAt(i)
+            if (isNaN(c)) {
+                return alert('NIF inválido')
+            }
+        }
+        if (i == nif.length) {
+            const nifInt = parseInt(nif)
+        }
+    }
+    if (numeroT == '')
+        alert('Tem de indicar um telemóvel.')
+    else {
+        let i = 0
+        for (i; i < numeroT.length; i++) {
+            let c = numeroT.charAt(i)
+            if (isNaN(c)) {
+                return alert('Telemóvel com números inválidos')
+            }
+        }
+        if (i == numeroT.length) {
+            const numeroTInt = parseInt(numeroT)
+        }
+    }
+    if (origem == '')
+        return alert('Escolher a Origem')
+    if (destino == '')
+        return alert('Escolher o Destino')
+    if(origem==destino)
+        return alert('Origem e destino devem ser diferentes')
+    
+    return true
+}
