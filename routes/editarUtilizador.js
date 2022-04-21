@@ -68,12 +68,10 @@ function checkFileType(file, callback) {
 }
 
 router.put('/atualizar', (req, res) => {
-    console.log(req.body.nif)
+    console.log(req.body)
     utilizadorModel.findOne({ 'nif': { $eq: req.body.nif } })
     .exec()
     .then((result) =>{
-        console.log(result)
-        console.log(req.body)
         if(result==null){
             res.json({
                 msg: 'Utilizador não encontrado',

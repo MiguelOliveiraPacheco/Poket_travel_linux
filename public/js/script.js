@@ -210,20 +210,20 @@ function atualizarUtilizador() {
     const destino = document.getElementById('destino').value
 
     if(validaEditFormData(nome,nif,numeroT,origem,destino)==true){
-        const data={'nome':nome, 'nif':nif, 'numeroT':numeroT, 'origem':origem, 'destino':destino}
-        /*let fd = new FormData()
+        /*const data={'nome':nome, 'nif':nif, 'numeroT':numeroT, 'origem':origem, 'destino':destino}*/
+        let fd = new FormData()
         fd.append('nome', nome )
         fd.append('nif', nif )
         fd.append('numeroT', numeroT )
         fd.append('origem', origem )
-        fd.append('destino', destino )*/
+        fd.append('destino', destino )
         var options = {
             method: 'PUT',
             headers: {
                 'Accept': 'application/json',
                 'myheader': nif
             },
-            body: JSON.stringify(data),
+            body: fd
         }
         fetch('http://localhost:3000/editar/atualizar', options)
             .then(res => res.json())

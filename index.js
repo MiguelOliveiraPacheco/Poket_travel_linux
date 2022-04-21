@@ -30,6 +30,7 @@ app.use('/createutilizador', require('./routes/createUtilizador'))
 app.use('/utilizadores', require('./routes/obterUtilizador'))
 app.use('/delete', require('./routes/eliminarUtilizador'))
 app.use('/editar', require('./routes/editarUtilizador'))
+app.use('/editar/atualizar', require('./routes/editarUtilizador'))
 
 
 mongoose.connect(process.env.MONGOURI, 
