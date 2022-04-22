@@ -67,8 +67,8 @@ function checkFileType(file, callback) {
     }
 }
 
-router.put('/atualizar', (req, res) => {
-    console.log(req.body)
+router.put('/', (req, res) => {
+    console.log(req.body.nif)
     utilizadorModel.findOne({ 'nif': { $eq: req.body.nif } })
     .exec()
     .then((result) =>{

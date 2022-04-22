@@ -187,7 +187,7 @@ function editar(_id) {
             fetch('http://localhost:3000/editar/' + _id, options)
             .then(res=>res.json())
             .then(json=>{
-                alert(json.msg)
+                //alert(json.msg)
                 document.getElementById('nome').value= json.utilizador.nome
                 document.getElementById('nif').disabled=true
                 document.getElementById('nif').value= json.utilizador.nif
@@ -208,27 +208,30 @@ function atualizarUtilizador() {
     const numeroT = document.getElementById('numeroT').value
     const origem = document.getElementById('origem').value
     const destino = document.getElementById('destino').value
-
+    console.log(validaEditFormData(nome,nif,numeroT,origem,destino))
     if(validaEditFormData(nome,nif,numeroT,origem,destino)==true){
-        /*const data={'nome':nome, 'nif':nif, 'numeroT':numeroT, 'origem':origem, 'destino':destino}*/
+        const data={'nome':nome, 'nif':nif, 'numeroT':numeroT, 'origem':origem, 'destino':destino}
+        console.log(data)
         let fd = new FormData()
-        fd.append('nome', nome )
+        /*fd.append('nome', nome )
         fd.append('nif', nif )
         fd.append('numeroT', numeroT )
         fd.append('origem', origem )
         fd.append('destino', destino )
+        console.log(fd)*/
         var options = {
             method: 'PUT',
             headers: {
-                'Accept': 'application/json',
+                'Content-type': 'application/json',
                 'myheader': nif
             },
-            body: fd
+            body: JSON.stringify(data)
         }
         fetch('http://localhost:3000/editar/atualizar', options)
             .then(res => res.json())
             .then(data => {
                 alert(data.msg)
+                window.location.replace("../view/verUtilizadores.html")
             })
             .catch((err) => {
                 console.log('Request failed', err.message)
