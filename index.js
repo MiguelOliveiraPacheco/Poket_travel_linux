@@ -17,7 +17,6 @@ app.use(express.static('./public'))
 
 //rota para teste do QR
 app.post('/teste', (req, res) => {
-/* https://www.tabnine.com/code/javascript/modules/qrcode */
 })
 
 
